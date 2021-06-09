@@ -221,6 +221,7 @@ function create() {
 
             gameObject.input.enabled = false;
             console.log(dropZone.name == gameObject.name);
+            console.log('successful dropoff of ' + gameObject.name + ' in ' + dropZone.name);
         }
 else{
             gameObject.x = gameObject.input.dragStartX;
