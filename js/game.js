@@ -21,6 +21,10 @@ let config = {
 // Déclaration de nos variables globales
 let game = new Phaser.Game(config);
 
+let successfulDropoff;
+
+var nextArrow;
+
 //
 function init() {
 }
@@ -37,12 +41,20 @@ function preload() {
     this.load.image('hips', './assets/hips-01.png');
     this.load.image('legL', './assets/legL-01.png');
     this.load.image('legR', './assets/legR-01.png');
+    
+    this.load.image('nextArrow', './assets/blue-arrow.png');
 
 }
 
 function create() {    
     var image = this.add.image(200, 300, 'background');
     image.alpha = 0.3;
+    
+    successfulDropoff = 0;
+    
+    nextArrow = this.add.image(300, 550, 'nextArrow');
+    nextArrow.setScale(0.7);
+    nextArrow.setVisible(false);
     
     //----les membres-----
     var head = this.add.image(260, 522, 'head', Phaser.Math.RND.pick(frames)).setInteractive();
@@ -222,6 +234,9 @@ function create() {
             gameObject.input.enabled = false;
             console.log(dropZone.name == gameObject.name);
             console.log('successful dropoff of ' + gameObject.name + ' in ' + dropZone.name);
+            
+            successfulDropoff++;
+            console.log(successfulDropoff);
         }
 else{
             gameObject.x = gameObject.input.dragStartX;
@@ -239,6 +254,13 @@ else{
             gameObject.x = gameObject.input.dragStartX;
             gameObject.y = gameObject.input.dragStartY;
         }
+        
+          if(successfulDropoff === 9){
+        console.log("well done!!!!");
+              nextArrow.setVisible(true);
+              nextArrow.setInteractive();
+              
+    }
 //
 //        graphics.clear();
 //        graphics.lineStyle(2, 0xffff00);
@@ -248,6 +270,8 @@ else{
 
     });
     
+    
+    nextArrow.on('pointerdown', onClick);
 //    var button = this.add.image(30, 160, 'fullscreen', 0).setOrigin(1, 0).setInteractive();
 //
 //        button.on('pointerup', function () {
@@ -272,4 +296,9 @@ else{
 
 function update() {
 
+}
+function onClick(){
+//    window.open("https://www.google.com", "_blank");
+    window.location.replace("http://www.w3schools.com");
+                  
 }
