@@ -33,6 +33,8 @@ var correctSound;
 
 var finishSound;
 
+var star;
+
 //
 function init() {
 }
@@ -56,12 +58,19 @@ function preload() {
     this.load.audio('wrong', './assets/wrong.wav');
     this.load.audio('correct', './assets/correct.wav');
     this.load.audio('finish', './assets/finish.wav');
+    
+    this.load.image('star', './assets/blue-star.png');
 
 }
 
 function create() {    
     var image = this.add.image(200, 300, 'background');
     image.alpha = 0.3;
+    
+    star = this.add.image(200,200, 'star');
+    star.setScale(0.5);
+//    star.setVisible(false);
+    star.setDepth(0);
     
     holdSound = this.sound.add('hold');
     wrongSound = this.sound.add('wrong');
@@ -213,6 +222,7 @@ function create() {
             successfulDropoff++;
             console.log(successfulDropoff);
             correctSound.play();
+            console.log(gameObject.depth);
         }
 else{
             gameObject.x = gameObject.input.dragStartX;
@@ -237,6 +247,7 @@ else{
               nextArrow.setVisible(true);
               nextArrow.setInteractive();
               finishSound.play();
+              star.setVisible(true);
               
     }
 
