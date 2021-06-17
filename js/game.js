@@ -26,11 +26,8 @@ let successfulDropoff;
 var nextArrow;
 
 var holdSound;
-
 var wrongSound;
-
 var correctSound;
-
 var finishSound;
 
 var star;
@@ -42,8 +39,11 @@ function init() {
 }
 
 function preload() {
+    //---personnage en transparence---
     this.load.image('background', './assets/romain-01.png');
     
+    
+    //----membres----
     this.load.image('head', './assets/head-01.png');
     this.load.image('body', './assets/body-01.png');
     this.load.image('handL', './assets/handL-01.png');
@@ -54,14 +54,19 @@ function preload() {
     this.load.image('legL', './assets/legL-01.png');
     this.load.image('legR', './assets/legR-01.png');
     
+    //---arrow next---
     this.load.image('nextArrow', './assets/blue-arrow.png');
     
+    //---audio files---
     this.load.audio('hold', './assets/hold.wav');
     this.load.audio('wrong', './assets/wrong.wav');
     this.load.audio('correct', './assets/correct.wav');
     this.load.audio('finish', './assets/finish.wav');
     
+    //---star at the end---
     this.load.image('star', './assets/blue-star.png');
+    
+    //---background pattern---
     this.load.image('gameBg', './assets/feuilledroite-01-01.png');
 
 }
@@ -72,16 +77,19 @@ function create() {
     var image = this.add.image(200, 300, 'background');
     image.alpha = 0.3;
     
+    //---star---
     star = this.add.image(200,200, 'star');
     star.setScale(0.5);
     star.setVisible(false);
     star.setDepth(0);
     
+    //---audio---
     holdSound = this.sound.add('hold');
     wrongSound = this.sound.add('wrong');
     correctSound = this.sound.add('correct');
     finishSound = this.sound.add('finish');
     
+    //---drop off counter---
     successfulDropoff = 0;
     
     nextArrow = this.add.image(300, 550, 'nextArrow');
@@ -185,11 +193,11 @@ function create() {
     
     graphics.strokeRect(zone9.x - zone9.input.hitArea.width / 2, zone9.y - zone9.input.hitArea.height / 2, zone9.input.hitArea.width, zone9.input.hitArea.height);
  
+    
+    //---drag and drop mechanics---
      this.input.on('dragstart', function (pointer, gameObject) {
          holdSound.play();
         this.children.bringToTop(gameObject);
-        
-
     }, this);
 
     this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
@@ -252,9 +260,7 @@ else{
               nextArrow.setVisible(true);
               nextArrow.setInteractive();
               finishSound.play();
-              star.setVisible(true);
-//              head.setDepth(-10);
-              
+              star.setVisible(true);              
     }
 
     });
