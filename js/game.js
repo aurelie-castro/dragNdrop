@@ -35,6 +35,8 @@ var finishSound;
 
 var star;
 
+var gameBg;
+
 //
 function init() {
 }
@@ -60,16 +62,19 @@ function preload() {
     this.load.audio('finish', './assets/finish.wav');
     
     this.load.image('star', './assets/blue-star.png');
+    this.load.image('gameBg', './assets/feuilledroite-01-01.png');
 
 }
 
 function create() {    
+    gameBg = this.add.image(200, 300, 'gameBg');
+    
     var image = this.add.image(200, 300, 'background');
     image.alpha = 0.3;
     
     star = this.add.image(200,200, 'star');
     star.setScale(0.5);
-//    star.setVisible(false);
+    star.setVisible(false);
     star.setDepth(0);
     
     holdSound = this.sound.add('hold');
@@ -248,6 +253,7 @@ else{
               nextArrow.setInteractive();
               finishSound.play();
               star.setVisible(true);
+//              head.setDepth(-10);
               
     }
 
