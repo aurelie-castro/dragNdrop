@@ -78,8 +78,8 @@ function create() {
     image.alpha = 0.3;
     
     //---star---
-    star = this.add.image(200,200, 'star');
-    star.setScale(0.5);
+    star = this.add.image(90,530, 'star');
+    star.setScale(0.2);
     star.setVisible(false);
     star.setDepth(0);
     
@@ -144,7 +144,7 @@ function create() {
     zone2.setName('body');
     
     //  A drop zone
-    var zone3 = this.add.zone(105, 292, 55, 70).setRectangleDropZone(55, 70);
+    var zone3 = this.add.zone(105, 292, 55, 90).setRectangleDropZone(55, 90);
     zone3.setName('handL');
     
     
@@ -173,25 +173,25 @@ function create() {
     zone9.setName('shoulderR');
     
     //  Just a visual display of the drop zone
-    var graphics = this.add.graphics();
-    graphics.lineStyle(2, 0xffff00);
-    graphics.strokeRect(zone.x - zone.input.hitArea.width / 2, zone.y - zone.input.hitArea.height / 2, zone.input.hitArea.width, zone.input.hitArea.height);
-    
-    graphics.strokeRect(zone2.x - zone2.input.hitArea.width / 2, zone2.y - zone2.input.hitArea.height / 2, zone2.input.hitArea.width, zone2.input.hitArea.height);
-    
-    graphics.strokeRect(zone3.x - zone3.input.hitArea.width / 2, zone3.y - zone3.input.hitArea.height / 2, zone3.input.hitArea.width, zone3.input.hitArea.height);
-    
-    graphics.strokeRect(zone4.x - zone4.input.hitArea.width / 2, zone4.y - zone4.input.hitArea.height / 2, zone4.input.hitArea.width, zone4.input.hitArea.height);
-    
-    graphics.strokeRect(zone5.x - zone5.input.hitArea.width / 2, zone5.y - zone5.input.hitArea.height / 2, zone5.input.hitArea.width, zone5.input.hitArea.height);
-    
-    graphics.strokeRect(zone6.x - zone6.input.hitArea.width / 2, zone6.y - zone6.input.hitArea.height / 2, zone6.input.hitArea.width, zone6.input.hitArea.height);
-    
-    graphics.strokeRect(zone7.x - zone7.input.hitArea.width / 2, zone7.y - zone7.input.hitArea.height / 2, zone7.input.hitArea.width, zone7.input.hitArea.height);
-    
-    graphics.strokeRect(zone8.x - zone8.input.hitArea.width / 2, zone8.y - zone8.input.hitArea.height / 2, zone8.input.hitArea.width, zone8.input.hitArea.height);
-    
-    graphics.strokeRect(zone9.x - zone9.input.hitArea.width / 2, zone9.y - zone9.input.hitArea.height / 2, zone9.input.hitArea.width, zone9.input.hitArea.height);
+//    var graphics = this.add.graphics();
+//    graphics.lineStyle(2, 0xffff00);
+//    graphics.strokeRect(zone.x - zone.input.hitArea.width / 2, zone.y - zone.input.hitArea.height / 2, zone.input.hitArea.width, zone.input.hitArea.height);
+//    
+//    graphics.strokeRect(zone2.x - zone2.input.hitArea.width / 2, zone2.y - zone2.input.hitArea.height / 2, zone2.input.hitArea.width, zone2.input.hitArea.height);
+//    
+//    graphics.strokeRect(zone3.x - zone3.input.hitArea.width / 2, zone3.y - zone3.input.hitArea.height / 2, zone3.input.hitArea.width, zone3.input.hitArea.height);
+//    
+//    graphics.strokeRect(zone4.x - zone4.input.hitArea.width / 2, zone4.y - zone4.input.hitArea.height / 2, zone4.input.hitArea.width, zone4.input.hitArea.height);
+//    
+//    graphics.strokeRect(zone5.x - zone5.input.hitArea.width / 2, zone5.y - zone5.input.hitArea.height / 2, zone5.input.hitArea.width, zone5.input.hitArea.height);
+//    
+//    graphics.strokeRect(zone6.x - zone6.input.hitArea.width / 2, zone6.y - zone6.input.hitArea.height / 2, zone6.input.hitArea.width, zone6.input.hitArea.height);
+//    
+//    graphics.strokeRect(zone7.x - zone7.input.hitArea.width / 2, zone7.y - zone7.input.hitArea.height / 2, zone7.input.hitArea.width, zone7.input.hitArea.height);
+//    
+//    graphics.strokeRect(zone8.x - zone8.input.hitArea.width / 2, zone8.y - zone8.input.hitArea.height / 2, zone8.input.hitArea.width, zone8.input.hitArea.height);
+//    
+//    graphics.strokeRect(zone9.x - zone9.input.hitArea.width / 2, zone9.y - zone9.input.hitArea.height / 2, zone9.input.hitArea.width, zone9.input.hitArea.height);
  
     
     //---drag and drop mechanics---
@@ -209,17 +209,17 @@ function create() {
 
     this.input.on('dragenter', function (pointer, gameObject, dropZone) {
 
-        graphics.clear();
-        graphics.lineStyle(2, 0x00ffff);
-        graphics.strokeRect(zone.x - zone.input.hitArea.width / 2, zone.y - zone.input.hitArea.height / 2, zone.input.hitArea.width, zone.input.hitArea.height);
-        console.log(gameObject.name);
+//        graphics.clear();
+//        graphics.lineStyle(2, 0x00ffff);
+//        graphics.strokeRect(zone.x - zone.input.hitArea.width / 2, zone.y - zone.input.hitArea.height / 2, zone.input.hitArea.width, zone.input.hitArea.height);
+//        console.log(gameObject.name);
 
     });
 
     this.input.on('dragleave', function (pointer, gameObject, dropZone) {
-            graphics.clear();
-        graphics.lineStyle(2, 0xffff00);
-        graphics.strokeRect(zone.x - zone.input.hitArea.width / 2, zone.y - zone.input.hitArea.height / 2, zone.input.hitArea.width, zone.input.hitArea.height);
+//            graphics.clear();
+//        graphics.lineStyle(2, 0xffff00);
+//        graphics.strokeRect(zone.x - zone.input.hitArea.width / 2, zone.y - zone.input.hitArea.height / 2, zone.input.hitArea.width, zone.input.hitArea.height);
 
     });
 
