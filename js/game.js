@@ -31,6 +31,7 @@ var correctSound;
 var finishSound;
 
 var star;
+var starScale;
 
 var gameBg;
 
@@ -67,19 +68,20 @@ function preload() {
     this.load.image('star', './assets/blue-star.png');
     
     //---background pattern---
-    this.load.image('gameBg', './assets/feuilledroite-01-01.png');
+    this.load.image('gameBg', './assets/feuilledroiteE-01-01.png');
 
 }
 
 function create() {    
-    gameBg = this.add.image(200, 300, 'gameBg');
+    gameBg = this.add.image(180, 320, 'gameBg');
     
     var image = this.add.image(200, 300, 'background');
     image.alpha = 0.3;
     
     //---star---
+    starScale = 0.1;
     star = this.add.image(90,530, 'star');
-    star.setScale(0.2);
+    star.setScale(starScale);
     star.setVisible(false);
     star.setDepth(0);
     
@@ -272,6 +274,22 @@ else{
 
 
 function update() {
+    if(successfulDropoff === 9){
+         starScale += 0.001;
+        star.setScale(starScale);
+        if (starScale > 0.2){
+            starScale = 0.2;
+        } 
+//        starScale = 0.4;
+//        setTimeout(function(){starScale = 0.3;
+//        star.setScale(starScale);}, 800);
+        
+        
+//        setTimeout(function(){starScale = 0.2;
+//        star.setScale(starScale);}, 2000);
+    }
+        
+
 
 }
 function onClick(){
