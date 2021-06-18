@@ -140,36 +140,36 @@ function create() {
     zone.setName('head');
     
     //  A drop zone
-    var zone2 = this.add.zone(197, 298, 70, 70).setRectangleDropZone(70, 70);
+    var zone2 = this.add.zone(196, 297, 70, 100).setRectangleDropZone(70, 100);
     zone2.setName('body');
     
     //  A drop zone
-    var zone3 = this.add.zone(104, 292, 50, 50).setRectangleDropZone(50, 50);
+    var zone3 = this.add.zone(104, 292, 55, 70).setRectangleDropZone(55, 70);
     zone3.setName('handL');
     
     
     //  A drop zone
-    var zone4 = this.add.zone(255, 348, 40, 40).setRectangleDropZone(40, 40);
+    var zone4 = this.add.zone(255, 346, 40, 55).setRectangleDropZone(40, 55);
     zone4.setName('handR');
     
     //  A drop zone
-    var zone5 = this.add.zone(148, 280, 30, 48).setRectangleDropZone(30, 48);
+    var zone5 = this.add.zone(149, 280, 30, 65).setRectangleDropZone(30, 65);
     zone5.setName('shoulderL');
     
      //  A drop zone
-    var zone6 = this.add.zone(197, 378, 80, 45).setRectangleDropZone(80, 45);
+    var zone6 = this.add.zone(197, 378, 80, 55).setRectangleDropZone(80, 55);
     zone6.setName('hips');
     
     //  A drop zone
-    var zone7 = this.add.zone(153, 444, 50, 80).setRectangleDropZone(50, 80);
+    var zone7 = this.add.zone(154, 444, 65, 80).setRectangleDropZone(65, 80);
     zone7.setName('legL');
     
     //  A drop zone
-    var zone8 = this.add.zone(220, 444, 50, 80).setRectangleDropZone(50, 80);
+    var zone8 = this.add.zone(221, 444, 65, 80).setRectangleDropZone(65, 80);
     zone8.setName('legR');
     
     //  A drop zone
-    var zone9 = this.add.zone(245, 290, 30, 50).setRectangleDropZone(30, 50);
+    var zone9 = this.add.zone(245, 285, 30, 70).setRectangleDropZone(30, 70);
     zone9.setName('shoulderR');
     
     //  Just a visual display of the drop zone
