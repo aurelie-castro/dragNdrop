@@ -136,7 +136,7 @@ function create() {
     
     //-----les drop zones----
     //  A drop zone
-    var zone = this.add.zone(200, 145, 200, 200).setRectangleDropZone(200, 200);
+    var zone = this.add.zone(200, 146, 200, 200).setRectangleDropZone(200, 200);
     zone.setName('head');
     
     //  A drop zone
@@ -144,7 +144,7 @@ function create() {
     zone2.setName('body');
     
     //  A drop zone
-    var zone3 = this.add.zone(104, 292, 55, 70).setRectangleDropZone(55, 70);
+    var zone3 = this.add.zone(105, 292, 55, 70).setRectangleDropZone(55, 70);
     zone3.setName('handL');
     
     
