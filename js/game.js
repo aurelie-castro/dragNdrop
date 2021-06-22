@@ -68,13 +68,14 @@ function preload() {
     this.load.image('star', './assets/blue-star.png');
     
     //---background pattern---
-    this.load.image('gameBg', './assets/feuilledroiteE-01-01.png');
+    this.load.image('gameBg', './assets/feuilledroite-01-01.png');
 
 }
 
 function create() {  
     game.sound.mute = true;
     gameBg = this.add.image(180, 320, 'gameBg');
+    gameBg.setVisible(false);
     
     var image = this.add.image(200, 300, 'background');
     image.alpha = 0.3;
@@ -236,7 +237,8 @@ else{
               nextArrow.setVisible(true);
               nextArrow.setInteractive();
               finishSound.play();
-              star.setVisible(true);              
+              star.setVisible(true);
+              gameBg.setVisible(true);
     }
 
     });
