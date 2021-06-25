@@ -30,6 +30,9 @@ var wrongSound;
 var correctSound;
 var finishSound;
 
+var soundButton;
+var hasBeenClicked;
+
 var star;
 var starScale;
 
@@ -64,6 +67,9 @@ function preload() {
     this.load.audio('correct', './assets/correct.wav');
     this.load.audio('finish', './assets/finish.wav');
     
+     //---sound button----
+    this.load.image('soundBtn', './assets/volume-up.png');
+    
     //---star at the end---
     this.load.image('star', './assets/blue-star.png');
     
@@ -76,6 +82,7 @@ function create() {
     game.sound.mute = true;
     gameBg = this.add.image(180, 320, 'gameBg');
     gameBg.setVisible(false);
+    gameBg.alpha = 0.8;
     
     var image = this.add.image(200, 300, 'background');
     image.alpha = 0.3;
@@ -92,6 +99,13 @@ function create() {
     wrongSound = this.sound.add('wrong');
     correctSound = this.sound.add('correct');
     finishSound = this.sound.add('finish');
+    
+    //----audio  btn----
+    soundButton = this.add.image(50,50, 'soundBtn');
+    soundButton.setScale(0.1);
+    soundButton.setInteractive();
+    soundButton.alpha = 0.5;
+    soundButton.on('pointerdown', enableMusic);
     
     //---drop off counter---
     successfulDropoff = 0;
@@ -118,7 +132,7 @@ function create() {
     this.input.setDraggable(handR);
     handR.setName('handR');
     
-    var shoulderL = this.add.image(50, 80, 'shoulderL', Phaser.Math.RND.pick(frames)).setInteractive();
+    var shoulderL = this.add.image(50, 120, 'shoulderL', Phaser.Math.RND.pick(frames)).setInteractive();
     this.input.setDraggable(shoulderL);
     shoulderL.setName('shoulderL');
     
@@ -264,7 +278,10 @@ function update() {
 //        setTimeout(function(){starScale = 0.2;
 //        star.setScale(starScale);}, 2000);
     }
-        
+         if (hasBeenClicked === true){
+        soundButton.alpha = 1;
+        }
+
 
 
 }
@@ -272,4 +289,8 @@ function onClick(){
 //    window.open("https://www.google.com", "_blank");
     window.location.replace("https://games.caramel.be/geppettoDnD/index.html");
                   
+}
+
+function enableMusic(){
+    hasBeenClicked = true;
 }
