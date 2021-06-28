@@ -11,7 +11,7 @@ let config = {
         create: create,
         update: update
     },
-    backgroundColor: '#ADD8E6',
+    backgroundColor: '#87CBF9',
     audio: {
         disableWebAudio: true
     },
@@ -38,6 +38,9 @@ var starScale;
 
 var gameBg;
 
+var gameCover;
+var startClicked;
+
 //
 function init() {
 }
@@ -46,7 +49,7 @@ function preload() {
     //---personnage en transparence---
     this.load.image('background', './assets/romain-01.png');
     
-    
+    this.load.image('cover', './assets/pinoCOVER-01.png');
     //----membres----
     this.load.image('head', './assets/head-01.png');
     this.load.image('body', './assets/body-01.png');
@@ -78,8 +81,10 @@ function preload() {
 
 }
 
-function create() {  
-    game.sound.mute = true;
+function create() { 
+    gameCover = this.add.image(180, 320, 'cover');
+    gameCover.setDepth(5);
+    
     gameBg = this.add.image(180, 320, 'gameBg');
     gameBg.setVisible(false);
     gameBg.alpha = 0.8;
@@ -193,9 +198,12 @@ function create() {
     
     //---drag and drop mechanics---
      this.input.on('dragstart', function (pointer, gameObject) {
-         game.sound.mute = false;
-         holdSound.play();
+         if (startClicked === true){
         this.children.bringToTop(gameObject);
+              holdSound.play();
+         }
+       
+        
     }, this);
 
     this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
@@ -259,9 +267,18 @@ else{
     
     
     nextArrow.on('pointerdown', onClick);
+    
+     this.input.on('pointerdown', function(pointer){
+         console.log(pointer.x);
+         console.log(pointer.y);
+        if(pointer.x >= 24 && pointer.x <= 150  && pointer.y >= 225 && pointer.y <=351){
+            console.log("cliqué sur start");
+            startClicked = true;
+//            sessionStorage.setItem("start clicked", "yes");
+            gameCover.setVisible(false);
+}});
 
 }
-
 
 function update() {
     if(successfulDropoff === 9){
