@@ -228,18 +228,18 @@ function create() {
             gameObject.y = dropZone.y;
 
             gameObject.input.enabled = false;
-            console.log(dropZone.name == gameObject.name);
-            console.log('successful dropoff of ' + gameObject.name + ' in ' + dropZone.name);
+//            console.log(dropZone.name == gameObject.name);
+//            console.log('successful dropoff of ' + gameObject.name + ' in ' + dropZone.name);
             
             successfulDropoff++;
-            console.log(successfulDropoff);
+//            console.log(successfulDropoff);
             correctSound.play();
-            console.log(gameObject.depth);
+//            console.log(gameObject.depth);
         }
 else{
             gameObject.x = gameObject.input.dragStartX;
             gameObject.y = gameObject.input.dragStartY;
-            console.log('failed dropoff of ' + gameObject.name + ' in ' + dropZone.name);
+//            console.log('failed dropoff of ' + gameObject.name + ' in ' + dropZone.name);
             wrongSound.play();
         }
         
@@ -255,7 +255,7 @@ else{
         }
         
           if(successfulDropoff === 9){
-        console.log("well done!!!!");
+//        console.log("well done!!!!");
               nextArrow.setVisible(true);
               nextArrow.setInteractive();
               finishSound.play();
@@ -269,10 +269,10 @@ else{
     nextArrow.on('pointerdown', onClick);
     
      this.input.on('pointerdown', function(pointer){
-         console.log(pointer.x);
-         console.log(pointer.y);
+//         console.log(pointer.x);
+//         console.log(pointer.y);
         if(pointer.x >= 24 && pointer.x <= 150  && pointer.y >= 225 && pointer.y <=351){
-            console.log("cliqué sur start");
+//            console.log("cliqué sur start");
             startClicked = true;
 //            sessionStorage.setItem("start clicked", "yes");
             gameCover.setVisible(false);
