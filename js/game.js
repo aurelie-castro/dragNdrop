@@ -304,7 +304,7 @@ function update() {
 }
 function onClick(){
 //    window.open("https://www.google.com", "_blank");
-    window.location.replace("https://games.caramel.be/geppettoDnD/index.html");
+    window.location.replace("https://games.caramel.be/geppetto/index.html");
                   
 }
 
