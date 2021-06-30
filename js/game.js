@@ -282,7 +282,7 @@ else{
             setTimeout(function(){ 
                 startClicked = true; 
                 gameCover.setVisible(false);
-            }, 1000);
+            }, 600);
 //            sessionStorage.setItem("start clicked", "yes");
 
 }});
