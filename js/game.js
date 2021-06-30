@@ -25,6 +25,7 @@ let successfulDropoff;
 
 var nextArrow;
 
+var startSound;
 var holdSound;
 var wrongSound;
 var correctSound;
@@ -65,6 +66,7 @@ function preload() {
     this.load.image('nextArrow', './assets/blue-arrow.png');
     
     //---audio files---
+    this.load.audio('start', './assets/start1.wav');
     this.load.audio('hold', './assets/hold.wav');
     this.load.audio('wrong', './assets/wrong.wav');
     this.load.audio('correct', './assets/correct.wav');
@@ -82,6 +84,8 @@ function preload() {
 }
 
 function create() { 
+    startClicked = false;
+    
     gameCover = this.add.image(180, 320, 'cover');
     gameCover.setDepth(5);
     
@@ -100,6 +104,7 @@ function create() {
     star.setDepth(0);
     
     //---audio---
+    startSound = this.sound.add('start');
     holdSound = this.sound.add('hold');
     wrongSound = this.sound.add('wrong');
     correctSound = this.sound.add('correct');
@@ -271,11 +276,15 @@ else{
      this.input.on('pointerdown', function(pointer){
 //         console.log(pointer.x);
 //         console.log(pointer.y);
-        if(pointer.x >= 24 && pointer.x <= 150  && pointer.y >= 225 && pointer.y <=351){
+        if(pointer.x >= 24 && pointer.x <= 150  && pointer.y >= 225 && pointer.y <=351 && startClicked === false){
 //            console.log("cliqué sur start");
-            startClicked = true;
+            startSound.play();
+            setTimeout(function(){ 
+                startClicked = true; 
+                gameCover.setVisible(false);
+            }, 1000);
 //            sessionStorage.setItem("start clicked", "yes");
-            gameCover.setVisible(false);
+
 }});
 
 }
