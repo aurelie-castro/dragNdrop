@@ -31,9 +31,6 @@ var wrongSound;
 var correctSound;
 var finishSound;
 
-var soundButton;
-var hasBeenClicked;
-
 var star;
 var starScale;
 
@@ -72,9 +69,6 @@ function preload() {
     this.load.audio('correct', './assets/correct.wav');
     this.load.audio('finish', './assets/finish.wav');
     
-     //---sound button----
-    this.load.image('soundBtn', './assets/volume-up.png');
-    
     //---star at the end---
     this.load.image('star', './assets/blue-star.png');
     
@@ -109,14 +103,7 @@ function create() {
     wrongSound = this.sound.add('wrong');
     correctSound = this.sound.add('correct');
     finishSound = this.sound.add('finish');
-    
-    //----audio  btn----
-    soundButton = this.add.image(50,50, 'soundBtn');
-    soundButton.setScale(0.1);
-    soundButton.setInteractive();
-    soundButton.alpha = 0.5;
-    soundButton.on('pointerdown', enableMusic);
-    
+
     //---drop off counter---
     successfulDropoff = 0;
     
@@ -233,18 +220,13 @@ function create() {
             gameObject.y = dropZone.y;
 
             gameObject.input.enabled = false;
-//            console.log(dropZone.name == gameObject.name);
-//            console.log('successful dropoff of ' + gameObject.name + ' in ' + dropZone.name);
             
             successfulDropoff++;
-//            console.log(successfulDropoff);
             correctSound.play();
-//            console.log(gameObject.depth);
         }
 else{
             gameObject.x = gameObject.input.dragStartX;
             gameObject.y = gameObject.input.dragStartY;
-//            console.log('failed dropoff of ' + gameObject.name + ' in ' + dropZone.name);
             wrongSound.play();
         }
         
@@ -260,7 +242,6 @@ else{
         }
         
           if(successfulDropoff === 9){
-//        console.log("well done!!!!");
               nextArrow.setVisible(true);
               nextArrow.setInteractive();
               finishSound.play();
@@ -274,16 +255,12 @@ else{
     nextArrow.on('pointerdown', onClick);
     
      this.input.on('pointerdown', function(pointer){
-//         console.log(pointer.x);
-//         console.log(pointer.y);
         if(pointer.x >= 24 && pointer.x <= 150  && pointer.y >= 225 && pointer.y <=351 && startClicked === false){
-//            console.log("cliqué sur start");
             startSound.play();
             setTimeout(function(){ 
                 startClicked = true; 
                 gameCover.setVisible(false);
             }, 600);
-//            sessionStorage.setItem("start clicked", "yes");
 
 }});
 
@@ -296,27 +273,10 @@ function update() {
         if (starScale > 0.2){
             starScale = 0.2;
         } 
-//        starScale = 0.4;
-//        setTimeout(function(){starScale = 0.3;
-//        star.setScale(starScale);}, 800);
-        
-        
-//        setTimeout(function(){starScale = 0.2;
-//        star.setScale(starScale);}, 2000);
     }
-         if (hasBeenClicked === true){
-        soundButton.alpha = 1;
-        }
-
-
 
 }
 function onClick(){
-//    window.open("https://www.google.com", "_blank");
     window.location.replace("https://games.caramel.be/geppetto/index.html");
                   
-}
-
-function enableMusic(){
-    hasBeenClicked = true;
 }
